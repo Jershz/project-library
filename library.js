@@ -41,9 +41,9 @@ function addBookToLibrary(author,title,pages,isRead) {
     updateCardsOnWebsite();
 }
 
-addBookToLibrary("asd", "asddasd", 1000, true);
-addBookToLibrary("assdfsdd", "asd2345dasd", 10020, false);
-addBookToLibrary("awer234sd", "asdw34werdasd", 10400, true);
+addBookToLibrary("Orson Scott Card", "Ender's Game", 1000, true);
+addBookToLibrary("J.R.R. Tolkien", "The Hobbit", 10020, false);
+addBookToLibrary("J.K. Rowling", "Harry Potter", 10400, true);
 
 function updateCardsOnWebsite() {
     myLibrary.forEach((item,index) => {
@@ -59,6 +59,13 @@ function updateCardsOnWebsite() {
                 const newCheck = document.createElement("input");
                 newCheck.type = "checkbox";
                 newCheck.checked = item[prop];
+                newCheck.addEventListener("change", () => {
+                    let checkId = newCheck.parentElement.parentElement.querySelector(".uniqueId").textContent;
+                    let checkIndex = myLibrary.findIndex(item => item.uniqueId === checkId);
+                    myLibrary[checkIndex].isRead = newCheck.checked;
+                    console.log(myLibrary[checkIndex].isRead)
+                    console.log(checkId);
+                });
                 newDiv.textContent = "Read? ";
                 newDiv.appendChild(newCheck);
             } else {
@@ -72,6 +79,7 @@ function updateCardsOnWebsite() {
             newCard.appendChild(newDiv);
         }
         const newRemoveButton = document.createElement("button");
+        newRemoveButton.classList.add("remove-button");
         newRemoveButton.textContent = "Remove";
         newRemoveButton.addEventListener("click", () => {
             let delId = newRemoveButton.parentElement.querySelector(".uniqueId").textContent;
@@ -79,7 +87,7 @@ function updateCardsOnWebsite() {
             myLibrary.splice(delIndex, 1);            
             newRemoveButton.parentElement.remove();
         });
-        
+
         newCard.appendChild(newRemoveButton);
         websiteMain.appendChild(newCard);
         myLibraryDisplay.push(item);
