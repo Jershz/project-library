@@ -50,3 +50,26 @@ button:hover {
     border-radius: 4px;
     font-weight: bold;
 }
+
+#cancel-button, #submit-button {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#author, #book-title, #pages, #is-read {
+    text-align: right;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+dialog {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 10%);
+    font-size: 1rem;
+    font-weight: bold;
+}
