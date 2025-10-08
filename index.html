@@ -8,6 +8,30 @@
     <title>Library Project</title>
 </head>
 <body>
-    
+    <button type="button" class="add-book-button">Add Book to Library</button>
+    <dialog class="dialog-form">
+        <form>            
+            <label for="author">
+                Author:
+                <input type="text" id="author" name="author">
+            </label>
+            <label for="book-title" autofocus>
+                Book Title:
+                <input type="text" id="book-title" name="book-title">
+            </label>
+            <label for="pages">
+                Page Count:
+                <input type="number" id="pages" name="pages">
+            </label>
+            <label for="is-read">
+                Read?:
+                <input type="checkbox" id="is-read" name="is-read">
+            </label>
+            
+            <button type="button" id="submit-button" name="submit-button" formmethod="dialog">Submit</button>
+            <button type="button" id="cancel-button" name="cancel-button" formmethod="dialog">Cancel</button>
+        </form>
+    </dialog>
+    <div class="main"></div>
 </body>
 </html>
