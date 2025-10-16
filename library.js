@@ -24,15 +24,14 @@ cancelFormButton.addEventListener("click", () => {
     formDialog.close();
 });
 
-function Book(author,title,pages,isRead) {
-    if(!new.target) {
-        throw("Must use 'new' keyword with Book constructor.");
+class Book {
+    constructor(author,title,pages,isRead) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.uniqueId = crypto.randomUUID();
     }
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.isRead = isRead;
-    this.uniqueId = crypto.randomUUID();
 }
 
 function addBookToLibrary(author,title,pages,isRead) {
